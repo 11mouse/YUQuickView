@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define Width_QuickViewBorder 1
-#define Color_QuickViewText [UIColor colorWithWhite:0.0 alpha:0.1]
+#define Color_QuickViewText [UIColor colorWithWhite:0.0 alpha:0.5]
 #define Font_QuickViewText [UIFont systemFontOfSize:12]
 
 @interface YUQuickInfoView : UIScrollView
