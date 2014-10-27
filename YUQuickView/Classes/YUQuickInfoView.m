@@ -78,10 +78,10 @@
         infoBaseX=0;
         infoBaseY=80+self.frame.size.height;
         infoW=300;
-        infoH=15;
+        infoH=22;
         
-        opBtnW=15;
-        opBtnH=15;
+        opBtnW=22;
+        opBtnH=22;
         opBtnSpace=5;
         opBtnBaseX=260;
         [self layoutMainBtn];
