@@ -118,7 +118,7 @@
     level++;
     NSInteger index=0;
     BOOL existsEventSubView=NO;
-    for (UIView *subView in rootView.subviews) {
+    for (UIView *subView in [rootView isKindOfClass:[UITableView class]]?((UITableView*)rootView).visibleCells:rootView.subviews) {
         CGRect windowFrame=[rootView convertRect:subView.frame toView:self.destWindow];
         if (CGRectContainsPoint(windowFrame, point)) {
             existsEventSubView=YES;
