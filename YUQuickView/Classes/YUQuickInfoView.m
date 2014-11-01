@@ -116,94 +116,78 @@
 -(void)layoutFrameInfo{
     xLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:xLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(frameXAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(frameXCut)]];
-     
+    [self addOpBtn:currOffsetY selector:@selector(frameX:)];
     currOffsetY+=infoH;
     
     yLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:yLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(frameYAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(frameYCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(frameY:)];
     
     currOffsetY+=infoH;
     
     widthLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:widthLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(frameWAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(frameWCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(frameW:)];
     currOffsetY+=infoH;
     
     heightLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:heightLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(frameHAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(frameHCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(frameH:)];
     currOffsetY+=infoH;
     
     fontSizeLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:fontSizeLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(fontSizeAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(fontSizeCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(fontSize:)];
     currOffsetY+=infoH;
     
     colorLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:colorLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(colorAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(colorCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(color:)];
     currOffsetY+=infoH;
     
     colorRLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:colorRLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(colorRAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(colorRCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(colorR:)];
     currOffsetY+=infoH;
     
     colorGLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:colorGLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(colorGAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(colorGCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(colorG:)];
     currOffsetY+=infoH;
     
     colorBLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:colorBLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(colorBAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(colorBCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(colorB:)];
     currOffsetY+=infoH;
     
     colorALabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:colorALabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(colorAAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(colorACut)]];
+    [self addOpBtn:currOffsetY selector:@selector(colorA:)];
     currOffsetY+=infoH;
     
     bgcolorLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:bgcolorLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(bgcolorAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(bgcolorCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(bgcolor:)];
     currOffsetY+=infoH;
     
     bgcolorRLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:bgcolorRLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(bgcolorRAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(bgcolorRCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(bgcolorR:)];
     currOffsetY+=infoH;
     
     bgcolorGLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:bgcolorGLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(bgcolorGAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(bgcolorGCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(bgcolorG:)];
     currOffsetY+=infoH;
     
     bgcolorBLabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:bgcolorBLabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(bgcolorBAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(bgcolorBCut)]];
+    [self addOpBtn:currOffsetY selector:@selector(bgcolorB:)];
     currOffsetY+=infoH;
     
     bgcolorALabel=[self getInfoLabel:CGRectMake(infoBaseX, infoBaseY+currOffsetY, infoW, infoH) text:@""];
     [self addSubview:bgcolorALabel];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"+" selector:@selector(bgcolorAAdd)]];
-    [self addSubview:[self getInfoButton:CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH) text:@"-" selector:@selector(bgcolorACut)]];
+    [self addOpBtn:currOffsetY selector:@selector(bgcolorA:)];
     currOffsetY+=infoH;
 }
 
@@ -255,6 +239,9 @@
     bgcolorALabel.text=@"";
     if ([destView respondsToSelector:@selector(backgroundColor)]) {
         UIColor *color=[destView performSelector:@selector(backgroundColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
@@ -312,319 +299,237 @@
 }
 
 -(UIButton*)getInfoButton:(CGRect)frame text:(NSString*)text selector:(SEL)selector{
-    UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn.layer.borderWidth=borderWidth;
-    btn.layer.borderColor=infoColor.CGColor;
-    [btn setTitleColor:infoColor forState:UIControlStateNormal];
+    UIButton *btn=[YUQuickViewOpBtn buttonWithType:UIButtonTypeCustom];
     btn.frame=frame;
     [btn setTitle:text forState:UIControlStateNormal];
     [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    btn.titleLabel.font=infoFont;
     return btn;
+}
+
+-(void)addOpBtn:(CGFloat)offsetY selector:(SEL)selector{
+    YUQuickViewOpBtn *btn=[YUQuickViewOpBtn buttonWithType:UIButtonTypeCustom];
+    btn.frame=CGRectMake(opBtnBaseX, infoBaseY+offsetY, opBtnW, opBtnH);
+    [btn setTitle:@"+" forState:UIControlStateNormal];
+    btn.opValue=1;
+    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn];
+    
+    btn=[YUQuickViewOpBtn buttonWithType:UIButtonTypeCustom];
+    btn.frame=CGRectMake(opBtnBaseX+opBtnSpace+opBtnW, infoBaseY+currOffsetY, opBtnW, opBtnH);
+    [btn setTitle:@"-" forState:UIControlStateNormal];
+    btn.opValue=-1;
+    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn];
+    
+    btn=[YUQuickViewOpBtn buttonWithType:UIButtonTypeCustom];
+    btn.frame=CGRectMake(opBtnBaseX+(opBtnSpace+opBtnW)*2, infoBaseY+currOffsetY, opBtnW, opBtnH);
+    [btn setTitle:@"++" forState:UIControlStateNormal];
+    btn.opValue=5;
+    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn];
+    
+    btn=[YUQuickViewOpBtn buttonWithType:UIButtonTypeCustom];
+    btn.frame=CGRectMake(opBtnBaseX+(opBtnSpace+opBtnW)*3, infoBaseY+currOffsetY, opBtnW, opBtnH);
+    [btn setTitle:@"--" forState:UIControlStateNormal];
+    btn.opValue=-5;
+    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn];
 }
 
 @end
 
 @implementation YUQuickInfoView(Frame)
 
--(void)frameXAdd{
-    _destView.frame=CGRectMake(_destView.frame.origin.x+1, _destView.frame.origin.y, _destView.frame.size.width, _destView.frame.size.height);
+-(void)frameX:(YUQuickViewOpBtn*)btn{
+    _destView.frame=CGRectMake(_destView.frame.origin.x+btn.opValue, _destView.frame.origin.y, _destView.frame.size.width, _destView.frame.size.height);
     [self updateInfo];
 }
 
--(void)frameXCut{
-    _destView.frame=CGRectMake(_destView.frame.origin.x-1, _destView.frame.origin.y, _destView.frame.size.width, _destView.frame.size.height);
+-(void)frameY:(YUQuickViewOpBtn*)btn{
+    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y+btn.opValue, _destView.frame.size.width, _destView.frame.size.height);
     [self updateInfo];
 }
 
--(void)frameYAdd{
-    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y+1, _destView.frame.size.width, _destView.frame.size.height);
+-(void)frameW:(YUQuickViewOpBtn*)btn{
+    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y, _destView.frame.size.width+btn.opValue, _destView.frame.size.height);
     [self updateInfo];
 }
 
--(void)frameYCut{
-    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y-1, _destView.frame.size.width, _destView.frame.size.height);
+-(void)frameH:(YUQuickViewOpBtn*)btn{
+    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y, _destView.frame.size.width, _destView.frame.size.height+btn.opValue);
     [self updateInfo];
 }
 
--(void)frameWAdd{
-    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y, _destView.frame.size.width+1, _destView.frame.size.height);
-    [self updateInfo];
-}
-
--(void)frameWCut{
-    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y, _destView.frame.size.width-1, _destView.frame.size.height);
-    [self updateInfo];
-}
-
--(void)frameHAdd{
-    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y, _destView.frame.size.width, _destView.frame.size.height+1);
-    [self updateInfo];
-}
-
--(void)frameHCut{
-    _destView.frame=CGRectMake(_destView.frame.origin.x, _destView.frame.origin.y, _destView.frame.size.width, _destView.frame.size.height-1);
-    [self updateInfo];
-}
-
--(void)fontSizeAdd{
+-(void)fontSize:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(setFont:)]&&[_destView respondsToSelector:@selector(font)]) {
         UIFont *font=[_destView performSelector:@selector(font)];
         if (font) {
-            [_destView performSelector:@selector(setFont:) withObject:[UIFont fontWithName:font.fontName size:font.pointSize+1]];
+            [_destView performSelector:@selector(setFont:) withObject:[UIFont fontWithName:font.fontName size:font.pointSize+btn.opValue]];
             [self updateInfo];
         }
     }
 }
 
--(void)fontSizeCut{
-    if ([_destView respondsToSelector:@selector(setFont:)]&&[_destView respondsToSelector:@selector(font)]) {
-        UIFont *font=[_destView performSelector:@selector(font)];
-        if (font) {
-            [_destView performSelector:@selector(setFont:) withObject:[UIFont fontWithName:font.fontName size:font.pointSize-1]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)colorAdd{
+-(void)color:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
         UIColor *color=[_destView performSelector:@selector(textColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+1)/255.0 green:roundf((colorG*255)+1)/255.0 blue:roundf((colorB*255)+1)/255.0 alpha:roundf((colorA*255)+1)/255.0]];
+            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+btn.opValue)/255.0 green:roundf((colorG*255)+btn.opValue)/255.0 blue:roundf((colorB*255)+btn.opValue)/255.0 alpha:roundf((colorA*255)+btn.opValue)/255.0]];
             [self updateInfo];
         }
     }
 }
--(void)colorCut{
+
+-(void)colorR:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
         UIColor *color=[_destView performSelector:@selector(textColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+1)/255.0 green:roundf((colorG*255)-1)/255.0 blue:roundf((colorB*255)-1)/255.0 alpha:roundf((colorA*255)-1)/255.0]];
+            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+btn.opValue)/255.0 green:colorG blue:colorB alpha:colorA]];
             [self updateInfo];
         }
     }
 }
 
--(void)colorRAdd{
+-(void)colorG:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
         UIColor *color=[_destView performSelector:@selector(textColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+1)/255.0 green:colorG blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:roundf((colorG*255)+btn.opValue)/255.0 blue:colorB alpha:colorA]];
             [self updateInfo];
         }
     }
 }
 
--(void)colorRCut{
+-(void)colorB:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
         UIColor *color=[_destView performSelector:@selector(textColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)-1)/255.0 green:colorG blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:roundf((colorB*255)+btn.opValue)/255.0 alpha:colorA]];
             [self updateInfo];
         }
     }
 }
 
--(void)colorGAdd{
+-(void)colorA:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
         UIColor *color=[_destView performSelector:@selector(textColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:roundf((colorG*255)+1)/255.0 blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:colorB alpha:roundf((colorA*255)+btn.opValue)/255.0]];
             [self updateInfo];
         }
     }
 }
 
--(void)colorGCut{
-    if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(textColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:roundf((colorG*255)-1)/255.0 blue:colorB alpha:colorA]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)colorBAdd{
-    if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(textColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:roundf((colorB*255)+1)/255.0 alpha:colorA]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)colorBCut{
-    if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(textColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:roundf((colorB*255)-1)/255.0 alpha:colorA]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)colorAAdd{
-    if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(textColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:colorB alpha:roundf((colorA*255)+1)/255.0]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)colorACut{
-    if ([_destView respondsToSelector:@selector(textColor)]&&[_destView respondsToSelector:@selector(setTextColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(textColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setTextColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:colorB alpha:roundf((colorA*255)-1)/255.0]];
-            [self updateInfo];
-        }
-    }
-}
-
-
-
-
--(void)bgcolorAdd{
+-(void)bgcolor:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
         UIColor *color=[_destView performSelector:@selector(backgroundColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+1)/255.0 green:roundf((colorG*255)+1)/255.0 blue:roundf((colorB*255)+1)/255.0 alpha:roundf((colorA*255)+1)/255.0]];
-            [self updateInfo];
+        if (!color) {
+            color=[UIColor clearColor];
         }
-    }
-}
--(void)bgcolorCut{
-    if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(backgroundColor)];
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+1)/255.0 green:roundf((colorG*255)-1)/255.0 blue:roundf((colorB*255)-1)/255.0 alpha:roundf((colorA*255)-1)/255.0]];
+            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+btn.opValue)/255.0 green:roundf((colorG*255)+btn.opValue)/255.0 blue:roundf((colorB*255)+btn.opValue)/255.0 alpha:roundf((colorA*255)+btn.opValue)/255.0]];
             [self updateInfo];
         }
     }
 }
 
--(void)bgcolorRAdd{
+-(void)bgcolorR:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
         UIColor *color=[_destView performSelector:@selector(backgroundColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+1)/255.0 green:colorG blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)+btn.opValue)/255.0 green:colorG blue:colorB alpha:colorA]];
             [self updateInfo];
         }
     }
 }
 
--(void)bgcolorRCut{
+-(void)bgcolorG:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
         UIColor *color=[_destView performSelector:@selector(backgroundColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:roundf((colorR*255)-1)/255.0 green:colorG blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:roundf((colorG*255)+btn.opValue)/255.0 blue:colorB alpha:colorA]];
             [self updateInfo];
         }
     }
 }
 
--(void)bgcolorGAdd{
+-(void)bgcolorB:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
         UIColor *color=[_destView performSelector:@selector(backgroundColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:roundf((colorG*255)+1)/255.0 blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:roundf((colorB*255)+btn.opValue)/255.0 alpha:colorA]];
             [self updateInfo];
         }
     }
 }
 
--(void)bgcolorGCut{
+-(void)bgcolorA:(YUQuickViewOpBtn*)btn{
     if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
         UIColor *color=[_destView performSelector:@selector(backgroundColor)];
+        if (!color) {
+            color=[UIColor clearColor];
+        }
         if (color) {
             CGFloat colorR,colorG,colorB,colorA;
             [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:roundf((colorG*255)-1)/255.0 blue:colorB alpha:colorA]];
+            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:colorB alpha:roundf((colorA*255)+btn.opValue)/255.0]];
             [self updateInfo];
         }
     }
 }
 
--(void)bgcolorBAdd{
-    if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(backgroundColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:roundf((colorB*255)+1)/255.0 alpha:colorA]];
-            [self updateInfo];
-        }
-    }
+@end
+@implementation YUQuickViewOpBtn
+
++(id)buttonWithType:(UIButtonType)buttonType{
+    UIButton *btn= [super buttonWithType:buttonType];
+    btn.layer.borderWidth=Width_QuickViewBorder;
+    btn.layer.borderColor=Color_QuickViewText.CGColor;
+    [btn setTitleColor:Color_QuickViewText forState:UIControlStateNormal];
+    btn.titleLabel.font=Font_QuickViewText;
+    return btn;
 }
 
--(void)bgcolorBCut{
-    if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(backgroundColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:roundf((colorB*255)-1)/255.0 alpha:colorA]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)bgcolorAAdd{
-    if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(backgroundColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:colorB alpha:roundf((colorA*255)+1)/255.0]];
-            [self updateInfo];
-        }
-    }
-}
-
--(void)bgcolorACut{
-    if ([_destView respondsToSelector:@selector(backgroundColor)]&&[_destView respondsToSelector:@selector(setBackgroundColor:)]) {
-        UIColor *color=[_destView performSelector:@selector(backgroundColor)];
-        if (color) {
-            CGFloat colorR,colorG,colorB,colorA;
-            [color getRed:&colorR green:&colorG blue:&colorB alpha:&colorA];
-            [_destView performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:colorR green:colorG blue:colorB alpha:roundf((colorA*255)-1)/255.0]];
-            [self updateInfo];
-        }
-    }
-}
 @end

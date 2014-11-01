@@ -21,39 +21,30 @@
 @property(nonatomic,copy) void(^resetState)();
 
 @end
-
+@class YUQuickViewOpBtn;
 @interface YUQuickInfoView(Frame)
 
--(void)frameXAdd;
--(void)frameXCut;
--(void)frameYAdd;
--(void)frameYCut;
--(void)frameWAdd;
--(void)frameWCut;
--(void)frameHAdd;
--(void)frameHCut;
--(void)fontSizeAdd;
--(void)fontSizeCut;
+-(void)frameX:(YUQuickViewOpBtn*)btn;
+-(void)frameY:(YUQuickViewOpBtn*)btn;
+-(void)frameW:(YUQuickViewOpBtn*)btn;
+-(void)frameH:(YUQuickViewOpBtn*)btn;
+-(void)fontSize:(YUQuickViewOpBtn*)btn;
 
--(void)colorAdd;
--(void)colorCut;
--(void)colorRAdd;
--(void)colorRCut;
--(void)colorGAdd;
--(void)colorGCut;
--(void)colorBAdd;
--(void)colorBCut;
--(void)colorAAdd;
--(void)colorACut;
+-(void)color:(YUQuickViewOpBtn*)btn;
+-(void)colorR:(YUQuickViewOpBtn*)btn;
+-(void)colorG:(YUQuickViewOpBtn*)btn;
+-(void)colorB:(YUQuickViewOpBtn*)btn;
+-(void)colorA:(YUQuickViewOpBtn*)btn;
 
--(void)bgcolorAdd;
--(void)bgcolorCut;
--(void)bgcolorRAdd;
--(void)bgcolorRCut;
--(void)bgcolorGAdd;
--(void)bgcolorGCut;
--(void)bgcolorBAdd;
--(void)bgcolorBCut;
--(void)bgcolorAAdd;
--(void)bgcolorACut;
+-(void)bgcolor:(YUQuickViewOpBtn*)btn;
+-(void)bgcolorR:(YUQuickViewOpBtn*)btn;
+-(void)bgcolorG:(YUQuickViewOpBtn*)btn;
+-(void)bgcolorB:(YUQuickViewOpBtn*)btn;
+-(void)bgcolorA:(YUQuickViewOpBtn*)btn;
+@end
+
+@interface YUQuickViewOpBtn : UIButton
+
+@property(nonatomic) CGFloat opValue;
+
 @end
